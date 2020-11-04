@@ -1,5 +1,7 @@
 # hello-world-cypress
 
+end-to-end testing with [Cypress](http://www.cypress.io/)
+
 ## Overview
 
 This repo shows a basic example of using Cypress and Docker Compose to create simple end-to-end tests for any web application. This example uses a Go application, but you can reuse the pattern in this repository for any web application that can run in Docker.
@@ -11,7 +13,7 @@ For more information, see the blog post, ["Easy End-to-End Testing with Cypress.
 The example application is called Sentimentalyzer, a very rudimentary text sentiment analyzer. To run it, enter the following commands:
 
 ```bash
-docker build --tag sentimentalyzer .
+docker build --tag sentimentalyzer:5.5 .
 docker run \
   --interactive \
   --tty \
@@ -48,4 +50,6 @@ This repo contains several branches to demonstrate different Cypress scenarios:
 ## To Do
 
 - [x] Upgrade to latest versions of Golang and Cypress
+- [ ] Check out http://github.com/bahmutov/cypress-open-from-docker-compose and http://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/
 - [ ] Clean up Docker image tags as well as `docker-compose` clean-up
+- [ ] Check out some of the Cypress [recipes](http://github.com/cypress-io/cypress-example-recipes) as well as CI/CD implementations

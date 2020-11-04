@@ -8,6 +8,13 @@ services:
     image: "cypress/included:5.5.0"
     depends_on:
       - sentimentalyzer
+    # inside this cypress container,
+    #    can access "sentimentalyzer" host under the name "sentimentalyzer"
+    #
+    # so "curl http://sentimentalyzer:8123" returns whatever the webserver
+    #    in the "sentimentalyzer" container provides
+    #
+    # see http://docs.docker.com/compose/networking/
     environment:
       - CYPRESS_baseUrl=http://sentimentalyzer:8123
     working_dir: /e2e
