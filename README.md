@@ -44,3 +44,8 @@ This repo contains several branches to demonstrate different Cypress scenarios:
 | [Running Cypress from within Circle CI](https://github.com/mtlynch/hello-world-cypress/tree/circle) | [`circle`](https://github.com/mtlynch/hello-world-cypress/tree/circle) |
 | [Running Cypress from within Travis CI](https://github.com/mtlynch/hello-world-cypress/tree/travis) | [`travis`](https://github.com/mtlynch/hello-world-cypress/tree/travis) |
 | [Running Cypress in interactive mode](https://github.com/mtlynch/hello-world-cypress/tree/interactive) | [`interactive`](https://github.com/mtlynch/hello-world-cypress/tree/interactive) |
+
+## To Do
+
+- [x] Upgrade to latest versions of Golang and Cypress
+- [ ] Clean up Docker image tags as well as `docker-compose` clean-up
