@@ -1,5 +1,7 @@
 # hello-world-cypress
 
+[![Build Status](https://travis-ci.org/mramshaw/hello-world-cypress.svg?branch=master)](https://travis-ci.org/mramshaw/hello-world-cypress)
+
 end-to-end testing with [Cypress](http://www.cypress.io/)
 
 ## Overview
@@ -52,4 +54,6 @@ This repo contains several branches to demonstrate different Cypress scenarios:
 - [x] Upgrade to latest versions of Golang and Cypress
 - [ ] Check out http://github.com/bahmutov/cypress-open-from-docker-compose and http://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/
 - [ ] Clean up Docker image tags as well as `docker-compose` clean-up
-- [ ] Check out some of the Cypress [recipes](http://github.com/cypress-io/cypress-example-recipes) as well as CI/CD implementations
+- [ ] Check out some of the Cypress [recipes](http://github.com/cypress-io/cypress-example-recipes)
+- [x] Check out some of the Cypress CI/CD implementations
+- [x] Add Travis CI badge
