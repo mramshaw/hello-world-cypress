@@ -50,23 +50,71 @@ Removing network e2e_default
 $
 ```
 
+## Running a Docker version of Cypress on mac
+
+Refer to [cy-open-mac.yml](e2e/cy-open-mac.yml).
+
+## Running a Docker version of Cypress on linux
+
+Refer to [cy-open-linux.yml](e2e/cy-open-linux.yml).
+
+Enable Cypress to connect to the X server:
+
+```bash
+$ xhost +local:
+non-network local connections being added to access control list
+$
+```
+
+Then run Cypress as follows:
+
+```bash
+$ docker-compose -f docker-compose.yml -f cy-open-linux.yml up --exit-code-from cypress
+WARNING: using --exit-code-from implies --abort-on-container-exit
+Starting e2e_sentimentalyzer_1 ... done
+Starting e2e_cypress_1         ... done
+Attaching to e2e_sentimentalyzer_1, e2e_cypress_1
+sentimentalyzer_1  | 2020/11/05 16:08:03 Listening on port 8123
+cypress_1          | [16:1105/160804.047174:ERROR:bus.cc(393)] Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+cypress_1          | [16:1105/160806.240109:ERROR:bus.cc(393)] Failed to connect to the bus: Address does not contain a colon
+cypress_1          | [16:1105/160806.275258:ERROR:bus.cc(393)] Failed to connect to the bus: Address does not contain a colon
+e2e_cypress_1 exited with code 0
+Aborting on container exit...
+Stopping e2e_sentimentalyzer_1 ... done
+$
+```
+
+[I cannot figure out how to get rid of the bus errors but the test runner launches.]
+
 ## Other branches
 
 This repo contains several branches to demonstrate different Cypress scenarios:
 
 | Scenario | Branch |
 |----------|---------|
-| [Basic Cypress example](https://github.com/mtlynch/hello-world-cypress) | [`master`](https://github.com/mtlynch/hello-world-cypress) |
-| [Using Cypress with Chrome browser](https://github.com/mtlynch/hello-world-cypress/tree/chrome) | [`chrome`](https://github.com/mtlynch/hello-world-cypress/tree/chrome) |
-| [Running Cypress from within Circle CI](https://github.com/mtlynch/hello-world-cypress/tree/circle) | [`circle`](https://github.com/mtlynch/hello-world-cypress/tree/circle) |
-| [Running Cypress from within Travis CI](https://github.com/mtlynch/hello-world-cypress/tree/travis) | [`travis`](https://github.com/mtlynch/hello-world-cypress/tree/travis) |
-| [Running Cypress in interactive mode](https://github.com/mtlynch/hello-world-cypress/tree/interactive) | [`interactive`](https://github.com/mtlynch/hello-world-cypress/tree/interactive) |
+| [Basic Cypress example](https://github.com/mramshaw/hello-world-cypress) | [`master`](https://github.com/mramshaw/hello-world-cypress) |
+| [Using Cypress with Chrome browser](https://github.com/mramshaw/hello-world-cypress/tree/chrome) | [`chrome`](https://github.com/mramshaw/hello-world-cypress/tree/chrome) |
+| [Running Cypress from within Circle CI](https://github.com/mramshaw/hello-world-cypress/tree/circle) | [`circle`](https://github.com/mramshaw/hello-world-cypress/tree/circle) |
+| [Running Cypress from within Travis CI](https://github.com/mramshaw/hello-world-cypress/tree/travis) | [`travis`](https://github.com/mramshaw/hello-world-cypress/tree/travis) |
+| [Running Cypress in interactive mode](https://github.com/mramshaw/hello-world-cypress/tree/interactive) | [`interactive`](https://github.com/mramshaw/hello-world-cypress/tree/interactive) |
 
 ## To Do
 
 - [x] Upgrade to latest versions of Golang and Cypress
-- [ ] Check out http://github.com/bahmutov/cypress-open-from-docker-compose and http://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/
 - [x] Clean up Docker image tags as well as `docker-compose` clean-up
+- [x] Add instructions on running a Docker version of Cypress on linux
 - [ ] Check out some of the Cypress [recipes](http://github.com/cypress-io/cypress-example-recipes)
 - [x] Check out some of the Cypress CI/CD implementations
 - [x] Add Travis CI badge
+
+## Credits
+
+Running a Docker version of Cypress on mac:
+
+    http://github.com/bahmutov/cypress-open-from-docker-compose
+
+    https://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/
+
+Running a Docker version of Cypress on linux:
+
+    https://stackoverflow.com/questions/59514234/viewing-the-interactive-cypress-test-runner-in-docker-on-linux
