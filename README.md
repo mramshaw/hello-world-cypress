@@ -86,6 +86,16 @@ $
 
 [I cannot figure out how to get rid of the bus errors but the test runner launches.]
 
+To clean up:
+
+```bash
+$ docker-compose down
+Removing e2e_cypress_1_fb36b3dabe75         ... done
+Removing e2e_sentimentalyzer_1_c4b0c05d50ed ... done
+Removing network e2e_default
+$
+```
+
 ## Other branches
 
 This repo contains several branches to demonstrate different Cypress scenarios:
